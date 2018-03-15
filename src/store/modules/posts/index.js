@@ -1,4 +1,5 @@
 import axios from 'axios'
+import api from '@/services/api/jsonplaceholder/posts/'
 
 const posts = {
     state: {
@@ -9,7 +10,7 @@ const posts = {
     },
     actions: {
         fetchPosts({commit}) {
-            axios.get('https://jsonplaceholder.typicode.com/posts')
+            api.fetchPosts()
                 .then((response) => commit("FETCH_POSTS", response.data))
                 .catch((error) => console.log(error))
         }

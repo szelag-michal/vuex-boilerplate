@@ -6,6 +6,7 @@ import Home from '@/pages/home/'
 import Posts from '@/pages/Posts/'
 import Post from '@/pages/Posts/Post.vue'
 import Users from '@/pages/Users/'
+import Ingredients from '@/pages/ingredients/'
 Vue.use(Router)
 
 export default new Router({
@@ -29,6 +30,11 @@ export default new Router({
       path: '/users',
       name: 'Users',
       component: Users
+    },
+    {
+      path: '/ingredients',
+      name: 'Ingredients',
+      component: Ingredients
     }
   ],
   mode: 'history'

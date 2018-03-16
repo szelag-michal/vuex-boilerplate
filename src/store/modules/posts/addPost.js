@@ -1,14 +1,6 @@
 import * as firebase from 'firebase'
 
 const addPost = {
-    state: {
-      
-    },
-    mutations: {
-        createPost (state, payload) {
-          state.posts.push(payload)
-        }
-    },
     actions: {
         addPost({commit, getters}, payload) {
           const post = {
@@ -20,7 +12,7 @@ const addPost = {
           firebase.database().ref('posts').push(post)
             .then((data) => {
               const key = data.key
-              commit('createPost', {
+              commit('CREATE_POST', {
                 ...post,
                 id: key
               })

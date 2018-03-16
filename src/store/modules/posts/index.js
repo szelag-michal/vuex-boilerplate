@@ -6,6 +6,9 @@ const posts = {
         posts: []
     },
     mutations: {
+        CREATE_POST (state, payload) {
+            state.posts.push(payload)
+          },
         FETCH_POSTS(state, posts) {
           let arr = []
           for(let key in posts) {

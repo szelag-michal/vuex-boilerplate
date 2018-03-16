@@ -5,6 +5,7 @@
       <router-link to="posts">posts</router-link>
       <router-link to="users">users</router-link>
       <router-link to="ingredients">ingredients</router-link>
+      <router-link to="signin">SignIn</router-link>
     </div>
   
 </template>

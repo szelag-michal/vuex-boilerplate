@@ -7,9 +7,20 @@ import Vue from 'vue'
 import App from './App.vue'
 import store from './store'
 import router from './router'
+import * as firebase from 'firebase'
+
 new Vue({
   el: '#app',
   store,
   router,
-  render: h => h(App)
+  render: h => h(App),
+  created() {
+    firebase.initializeApp({
+      apiKey: 'AIzaSyCy115ATWCgwfQHB4uWXydG3fP1hPfOvuA',
+      authDomain: 'lakomy-lasuch.firebaseapp.com',
+      databaseURL: 'https://lakomy-lasuch.firebaseio.com',
+      projectId: 'lakomy-lasuch',
+      storageBucket: 'lakomy-lasuch.appspot.com',
+    })
+  }
 })

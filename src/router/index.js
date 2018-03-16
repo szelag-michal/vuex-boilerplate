@@ -7,35 +7,17 @@ import Posts from '@/pages/Posts/'
 import Post from '@/pages/Posts/Post.vue'
 import Users from '@/pages/Users/'
 import Ingredients from '@/pages/ingredients/'
+import SignIn from '@/pages/signin/'
 Vue.use(Router)
 
 export default new Router({
   routes: [
-    {
-      path: '/',
-      name: 'Home',
-      component: Home
-    },
-    {
-      path: '/posts',
-      name: 'Posts',
-      component: Posts
-    },
-    {
-      path: '/posts/:id',
-      name: 'Post',
-      component: Post
-    },
-    {
-      path: '/users',
-      name: 'Users',
-      component: Users
-    },
-    {
-      path: '/ingredients',
-      name: 'Ingredients',
-      component: Ingredients
-    }
+    {path: '/',name: 'Home',component: Home},
+    {path: '/posts',name: 'Posts',component: Posts},
+    {path: '/posts/:id',name: 'Post',component: Post},
+    {path: '/users',name: 'Users',component: Users},
+    {path: '/ingredients',name: 'Ingredients',component: Ingredients},
+    {path: '/signin', name: 'singin',component: SignIn}
   ],
   mode: 'history'
 })

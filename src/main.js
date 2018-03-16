@@ -26,5 +26,10 @@ new Vue({
       projectId: 'lakomy-lasuch',
       storageBucket: 'lakomy-lasuch.appspot.com',
     })
+    firebase.auth().onAuthStateChanged((user) => {
+      if(user) {
+        this.$store.dispatch('autoSignIn', user)
+      }
+    })
   }
 })

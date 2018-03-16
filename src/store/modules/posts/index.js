@@ -1,12 +1,19 @@
 import axios from 'axios'
-import api from '@/services/api/jsonplaceholder/posts/'
+import api from '@/services/api/firebase/posts/'
 
 const posts = {
     state: {
         posts: []
     },
     mutations: {
-        FETCH_POSTS(state, posts) {state.posts = posts}
+        FETCH_POSTS(state, posts) {
+          let arr = []
+          for(let key in posts) {
+            posts[key].id = key
+              arr.push(posts[key]);
+          }
+          state.posts = arr;
+        }
     },
     actions: {
         fetchPosts({commit}) {

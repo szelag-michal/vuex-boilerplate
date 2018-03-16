@@ -10,7 +10,7 @@ export default {
   methods: {
       onClose () {
           console.log('test');
-        //   this.$emit('dismissed')
+          this.$emit('dismissed')
       }
   }
 }

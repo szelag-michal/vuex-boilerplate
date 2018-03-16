@@ -1,7 +1,6 @@
 <template>
   <div>
       <div v-if="error">
-          test
           <app-alert @dismissed="onDismissed" :text="error.message"></app-alert>
       </div>
     <form @submit.prevent="onSignIn()">
@@ -24,7 +23,7 @@ export default {
           return this.$store.getters.user
       },
       error () {
-        console.log(this.$store.getters.error)
+        return this.$store.getters.error
         },
     loading () {
         return this.$store.getters.loading
@@ -33,16 +32,19 @@ export default {
   watch: {
       user (value) {
           if(value !== null && value !== undefined) {
-              this.$router.push('/')
+              this.$router.push('/dashboard')
           }
       }
   },
+  created() {
+    this.onDismissed()
+  },
   methods: {
       onDismissed () {
-        this.$store.dispatch('clearError')
+        return this.$store.dispatch('clearError')
         },
       onSignIn () {
-          this.$store.dispatch('signUserIn', {email: this.email, password: this.password})
+          return this.$store.dispatch('signUserIn', {email: this.email, password: this.password})
       }
   }
 }

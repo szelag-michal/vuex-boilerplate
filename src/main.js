@@ -8,6 +8,10 @@ import App from './App.vue'
 import store from './store'
 import router from './router'
 import * as firebase from 'firebase'
+import AlertComponent from './components/shared/Alert'
+
+//Register Global Components
+Vue.component('app-alert', AlertComponent)
 
 new Vue({
   el: '#app',

@@ -11,6 +11,7 @@ const signin = {
       },
       actions: {
         signUserIn ({commit}, payload) {
+        commit('setLoading', true)
           firebase.auth().signInWithEmailAndPassword(payload.email, payload.password)
             .then(user => {
                 const newUser = {

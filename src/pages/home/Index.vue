@@ -1,5 +1,9 @@
 <template>
   <div>
-    index vue
+    index
   </div>
 </template>
+<script>
+export default {
+}
+</script>

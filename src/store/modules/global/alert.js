@@ -13,6 +13,14 @@ const alert = {
         clearError (state) {
           state.error = null
         }
+      },
+      getters: {
+        loading (state) {
+            return state.loading
+          },
+          error (state) {
+            return state.error
+          }
       }
 }
 export default alert

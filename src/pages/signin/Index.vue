@@ -1,6 +1,7 @@
 <template>
   <div>
       <div v-if="error">
+          test
           <app-alert @dismissed="onDismissed" :text="error.message"></app-alert>
       </div>
     <form @submit.prevent="onSignIn()">
@@ -23,8 +24,8 @@ export default {
           return this.$store.getters.user
       },
       error () {
-      return this.$store.getters.error
-    },
+        console.log(this.$store.getters.error)
+        },
     loading () {
         return this.$store.getters.loading
     }

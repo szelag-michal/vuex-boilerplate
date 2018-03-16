@@ -7,7 +7,8 @@ const addPost = {
             title: payload.title,
             category: payload.category,
             excerpt: payload.excerpt,
-            content: payload.content
+            content: payload.content,
+            authorId: getters.user.id
           }
           firebase.database().ref('posts').push(post)
             .then((data) => {

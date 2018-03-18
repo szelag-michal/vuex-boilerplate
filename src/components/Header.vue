@@ -4,7 +4,7 @@
       <router-link to="/">home</router-link>
       <router-link to="posts">posts</router-link>
       <router-link to="users">users</router-link>
-      <router-link to="ingredients">ingredients</router-link>
+      
       |
       <router-link 
           v-for="item in menuItems"
@@ -28,7 +28,8 @@ export default {
         if (this.userIsAuthenticated) {
           menuItems = [
             {title: 'Dashboard', link: '/dashboard'},
-            {title: 'Add Post', link: '/dashboard/add-post'}
+            {title: 'Add Post', link: '/dashboard/add-post'},
+            {title: 'Add Category', link: '/dashboard/add-category'}
           ]
         }
         return menuItems

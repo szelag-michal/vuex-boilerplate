@@ -2,27 +2,29 @@
   <div>
     <form @submit.prevent="onAddPost()">
       <input type="text" v-model="title" placeholder="title">
-    <select v-model="category">
-      <option value="cat1">Category #1</option>
-      <option value="cat2">Category #2</option>
-      <option value="cat3">Category #3</option>
-      <option value="cat4">Category #4</option>
+    <select v-model="categoryId" v-if="fetchCategories()">
+      <option :value="category.id" v-for="category in fetchCategories()" :key="category.category">{{category.category}}</option>
     </select>
     <img :src="imageUrl" alt="">  
     <button @click="onPickFile">upload image</button>
     <input type="file" placeholder="add post image" style="display: none;" ref="fileInput" accept="image/*" @change="onFilePicked"/>
     <textarea v-model="excerpt" placeholder="excerpt"></textarea>
-    <textarea v-model="content" placeholder="content"></textarea>
+    
+    <wysiwyg v-model="content" />
     <div><button>add</button></div>
     </form>
   </div>
 </template>
 <script>
+import Vue from 'vue'
+import wysiwyg from "vue-wysiwyg";
+Vue.use(wysiwyg, {}); // config is optional. more below
+
 export default {
   data() {
     return {
       title: '',
-      category: '',
+      categoryId: '',
       excerpt: '',
       content: '',
       image: null,
@@ -31,10 +33,16 @@ export default {
   },
   computed: {
     formIsValid () {
-      return this.title !== '' && this.category !== '' && this.excerpt !== '' && this.content !== ''
-    }
+      return this.title !== '' && this.categoryId !== '' && this.excerpt !== '' && this.content !== ''
+    },
+  },
+  created () {
+    this.$store.dispatch("fetchCategories")
   },
   methods: {
+    fetchCategories () {
+      return this.$store.state.categories.categories
+    },
     onFilePicked (event) {
       const files = event.target.files
       let filename = files[0].name
@@ -55,7 +63,7 @@ export default {
       if (!this.formIsValid || !this.image) return
       const postData = {
         title: this.title,
-        category: this.category,
+        categoryId: this.categoryId,
         image: this.image,
         excerpt: this.excerpt,
         content: this.content
@@ -66,3 +74,7 @@ export default {
   }
 }
 </script>
+<style lang="scss">
+@import '../../../node_modules/vue-wysiwyg/dist/vueWysiwyg.css';
+.editr--toolbar {display: flex;}
+</style>

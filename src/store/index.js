@@ -1,23 +1,25 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
 
-import posts from './modules/posts/'
-import users from './modules/users/'
 import signin from './modules/firebase/signin'
-import ingredients from './modules/ingredients/'
 import alert from './modules/global/alert'
+
+import posts from './modules/posts/'
 import addPost from './modules/posts/addPost'
+
+import categories from './modules/categories'
+import addCategory from './modules/categories/addCategory'
 
 Vue.use(Vuex)
 
 const store = new Vuex.Store({
     modules: {
+      signin,
       alert,
       posts,
-      users,
-      ingredients,
-      signin,
-      addPost
+      addPost,
+      categories,
+      addCategory
     }
   })
   

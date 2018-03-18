@@ -5,7 +5,7 @@ const addPost = {
         addPost({commit, getters}, payload) {
           const post = {
             title: payload.title,
-            category: payload.category,
+            categoryId: payload.categoryId,
             excerpt: payload.excerpt,
             content: payload.content,
             authorId: getters.user.id

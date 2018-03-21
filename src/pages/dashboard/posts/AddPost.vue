@@ -75,6 +75,6 @@ export default {
 }
 </script>
 <style lang="scss">
-@import '../../../node_modules/vue-wysiwyg/dist/vueWysiwyg.css';
+@import '../../../../node_modules/vue-wysiwyg/dist/vueWysiwyg.css';
 .editr--toolbar {display: flex;}
 </style>

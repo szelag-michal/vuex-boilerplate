@@ -9,9 +9,15 @@ import Users from '@/pages/Users/'
 import Ingredients from '@/pages/ingredients/'
 
 import SignIn from '@/pages/signin/'
+
 import Dashboard from '@/pages/dashboard'
-import AddPost from '@/pages/dashboard/AddPost.vue'
-import AddCategory from '@/pages/dashboard/AddCategory.vue'
+
+import DashboardPosts from '@/pages/dashboard/posts/'
+import AddPost from '@/pages/dashboard/posts/AddPost.vue'
+
+import DashboardCategories from '@/pages/dashboard/categories/'
+import AddCategory from '@/pages/dashboard/categories/AddCategory.vue'
+
 import AuthGuard from './auth-guard'
 
 Vue.use(Router)
@@ -25,8 +31,10 @@ export default new Router({
     {path: '/ingredients',name: 'Ingredients',component: Ingredients},
     {path: '/signin', name: 'singin',component: SignIn},
     {path: '/dashboard', name: 'dashboard', component: Dashboard,beforeEnter: AuthGuard},
-    {path: '/dashboard/add-post', name: 'AddPost', component: AddPost,beforeEnter: AuthGuard},
-    {path: '/dashboard/add-category', name: 'AddCategory', component: AddCategory,beforeEnter: AuthGuard}
+    {path: '/dashboard/posts/', name: 'DashboardPosts', component: DashboardPosts,beforeEnter: AuthGuard},
+    {path: '/dashboard/posts/add', name: 'AddPost', component: AddPost,beforeEnter: AuthGuard},
+    {path: '/dashboard/categories/', name: 'DashboardCategories', component: DashboardCategories,beforeEnter: AuthGuard},
+    {path: '/dashboard/categories/edit', name: 'AddCategory', component: AddCategory,beforeEnter: AuthGuard}
   ],
   mode: 'history'
 })

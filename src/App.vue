@@ -1,7 +1,7 @@
 <template>
   <div id="app">
-    <app-header></app-header>
-		<router-view></router-view>
+    <router-view></router-view>
+    <floating-nav></floating-nav>
   </div>
 </template>
 
@@ -13,6 +13,6 @@ export default {
   }
 }
 </script>
-<style>
-
+<style lang="sass">
+  
 </style>

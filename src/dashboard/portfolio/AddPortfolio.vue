@@ -1,13 +1,13 @@
 <template>
   <div>
-    <form @submit.prevent="onAddPost()">
+    <form @submit.prevent="onAddPortfolio()">
       <input type="text" v-model="title" placeholder="title">
     <select v-model="categoryId" v-if="fetchCategories()">
       <option :value="category.id" v-for="category in fetchCategories()" :key="category.category">{{category.category}}</option>
     </select>
     <img :src="imageUrl" alt="">  
     <button @click="onPickFile">upload image</button>
-    <input type="file" placeholder="add post image" style="display: none;" ref="fileInput" accept="image/*" @change="onFilePicked"/>
+    <input type="file" placeholder="add portfolio image" style="display: none;" ref="fileInput" accept="image/*" @change="onFilePicked"/>
     <textarea v-model="excerpt" placeholder="excerpt"></textarea>
     
     <wysiwyg v-model="content" />
@@ -59,22 +59,22 @@ export default {
     onPickFile () {
       this.$refs.fileInput.click()
     },
-    onAddPost () {
+    onAddPortfolio () {
       if (!this.formIsValid || !this.image) return
-      const postData = {
+      const portfolioData = {
         title: this.title,
         categoryId: this.categoryId,
         image: this.image,
         excerpt: this.excerpt,
         content: this.content
       }
-      this.$store.dispatch('addPost', postData)
-      this.$router.push('/posts')
+      this.$store.dispatch('addPortfolio', portfolioData)
+      this.$router.push('/portfolio')
     }
   }
 }
 </script>
 <style lang="scss">
-@import '../../../../node_modules/vue-wysiwyg/dist/vueWysiwyg.css';
+@import '../../../node_modules/vue-wysiwyg/dist/vueWysiwyg.css';
 .editr--toolbar {display: flex;}
 </style>

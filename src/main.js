@@ -10,14 +10,15 @@ import router from './router'
 import Buefy from 'buefy'
 import * as firebase from 'firebase'
 import AlertComponent from './components/shared/Alert'
-import FloatingNav from './components/shared/FloatingNav'
-import './assets/scss/_variables.scss'
+import SVGIcon from './components/shared/svgIcon'
+
+import './assets/scss/_bulma.scss'
 
 Vue.use(Buefy)
 
 //Register Global Components
 Vue.component('app-alert', AlertComponent)
-Vue.component('floating-nav', FloatingNav)
+Vue.component(SVGIcon.name, SVGIcon)
 
 new Vue({
   el: '#app',

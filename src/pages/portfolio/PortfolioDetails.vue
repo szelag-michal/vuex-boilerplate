@@ -1,5 +1,5 @@
 <template>
   <div>
-    dashboard
+    {{$route.params.id}}
   </div>
 </template>

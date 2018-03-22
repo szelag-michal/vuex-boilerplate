@@ -17,36 +17,59 @@ $twitter: #4099FF;
 $twitter-invert: findColorInvert($twitter);
 $light: #F3F4F8;
 $dark: #383D53;
+
 // Setup $colors to use as bulma classes (e.g. 'is-twitter')
-$colors: (
-    "white": ($white, $black),
-    "black": ($black, $white),
-    "light": ($light, $light-invert),
-    "dark": ($dark, $dark-invert),
-    "primary": ($primary, $primary-invert),
-    "info": ($info, $info-invert),
-    "success": ($success, $success-invert),
-    "warning": ($warning, $warning-invert),
-    "danger": ($danger, $danger-invert),
-    "twitter": ($twitter, $twitter-invert)
-);
+    $colors: (
+        "white": ($white, $black),
+        "black": ($black, $white),
+        "light": ($light, $light-invert),
+        "dark": ($dark, $dark-invert),
+        "primary": ($primary, $primary-invert),
+        "info": ($info, $info-invert),
+        "success": ($success, $success-invert),
+        "warning": ($warning, $warning-invert),
+        "danger": ($danger, $danger-invert),
+        "twitter": ($twitter, $twitter-invert)
+    );
 
 // Links
-$link: $primary;
-$link-invert: $primary-invert;
-$link-focus-border: $primary;
+    $link: $primary;
+    $link-invert: $primary-invert;
+    $link-focus-border: $primary;
 
 // Import Bulma and Buefy styles
 @import "~bulma";
 @import "~buefy/src/scss/buefy";
+
+//Bulma Modifications
+.is-fixed {
+    &-right {position: fixed;right:0;top: 0;min-width: 3.25em;height: 100%;z-index: 1;}
+}
 
 h1, h2, h3, h4, h5, h6 {font-family: $family-sans-serif}
 body {font-family: $family-monospace;color: $dark;background: {color: light;image: url('../img/elipse_1.svg'), url('../img/elipse_2.svg');position: left top, right bottom;size: 30%;repeat: no-repeat;}}
 .logo img {width: 6.5em;height:auto;}
 .title {color: $dark}
 .subtitle {color: $dark;}
-.home {
-    &.hero {
+.hero {
+    &.home {
         .hero-body {align-items: flex-end;transform: translateY(-10%)}
+    }
+}
+.navbar-main {
+    background: transparent;
+    .menu-list {height: 100%;
+        a {font-size: 1.6em;}
+        img {width: 1em;height: 1em;}
+    }
+    .main-menu-list {
+        position: absolute;z-index: -1;background: $dark;padding: 2em 3.25em 2em 0;right: -500px;top: 0;height: 100%;min-width: 25em;
+        a {display: block;padding: .8em .5em .8em 2em;border-bottom: solid 1px darken($dark,5)}
+    }
+
+    &.active {
+        a {color: $light;}
+        .menu-list {background: darken($dark,5); a:hover {background: darken($dark,10)}}
+        .main-menu-list {right: 0; }
     }
 }
